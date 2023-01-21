@@ -1,35 +1,24 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+//Билет №9
+//Задача
+//Напишите пример обработки нескольких исключений в одном блоке catch.
 public class Main {
     public static void main(String[] args) {
-        //Напишите Java-программу, чтобы определить, является ли строка палиндромом, или нет
+        System.out.println("Внесите два числа");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("Число 1");
+            int num1 = scanner.nextInt();
 
-        // простой вариант
-        String string = "Потоп";
-        for(int x = string.length()/2-1; x>=0; x--) {
-            if (string.charAt(string.length() - 1 - x) !=
-                    string.charAt(x)){
-                System.out.println (" не явлется палиндромом");
-                break;
-            }
-        }
+            System.out.println("Число 2");
+            int num2 = scanner.nextInt();
 
-        // Сложный вариан
-        String inputString, reversedString = "";
-        Scanner scannerQ = new Scanner(System.in);
-        int stringLength;
-        System.out.println("Введите число или строку");
-        inputString = scannerQ.nextLine();
-        stringLength = inputString.length();
-        for (int x = stringLength -1; x>=0; x--) {
-            reversedString = reversedString + inputString.charAt(x);
-
-        }
-        System.out.println("перевернутое значение: " + reversedString);
-        if(inputString.equals(reversedString))
-            System.out.println("Введенное значение является палиндромом");
-        else
-            System.out.println("Введенное значение не является палиндромом");
-
+            int divideNum = num1/ num2;
+            System.out.println("Результат:" + divideNum);
+        } catch (InputMismatchException | ArithmeticException e) {
+            System.out.println("Пожалуйста убедитесь, что ведено правильное значение!");
         }
     }
+}
